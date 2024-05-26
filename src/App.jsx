@@ -1,11 +1,12 @@
 import './App.css'
-import { SideBar } from './components'
+import { Content, SideBar } from './components'
 
 function App() {
 
   return (
     <>
     <SideBar />
+    <Content />
     </>
   )
 }
