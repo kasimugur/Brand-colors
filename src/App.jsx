@@ -17,11 +17,14 @@ function App() {
     console.log(selectedBrands)
   }, [selectedBrands])
 
+  
+
   const data = {
     brands,
     selectedBrands,
     setSelectedBrands,
-    setCopied
+    setCopied,
+    copied
   }
   return (
     <>

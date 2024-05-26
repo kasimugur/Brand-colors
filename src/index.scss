@@ -72,8 +72,8 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background:#54acd8;
-  color: #fff;
+  background:var(--bgColor);
+  color: var(--textColor);
   padding: 15px 25px ;
   border-radius: 4px;
   font-size: 16px;
