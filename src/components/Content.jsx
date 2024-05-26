@@ -1,14 +1,12 @@
 import Search from "./Search";
-import BrandData from "../brands.json"
+import Brand from "./Brand";
+import { useContext } from "react";
+import MainContext from "../contetx/MainContext";
 
 
 export default function Content() {
-  const brandsArray = []
-  Object.keys(BrandData).map(key => {
-    brandsArray.push(BrandData[key])
-  })
 
-console.log(brandsArray)
+const {brands} = useContext(MainContext)
 
   return (<>
     <main className="content">
@@ -16,8 +14,8 @@ console.log(brandsArray)
         <Search />
       </header>
 
-      <section className="brand">
-
+      <section className="brands">
+        {brands.map(brand => (<Brand brand={brand} />) )}
       </section>
     </main>
   </>)

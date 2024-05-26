@@ -71,7 +71,50 @@ body {
 
 .content{
   flex: 1;
+  overflow: auto;
+  background: #f8f8f8;
+  .brands{
+    padding: 25px;
+    .brand{
+      border: 1px solid #ddd;
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 10px;
+      &.selected {
+        border-color: red;
+        .brand-color {
+          span {
+            cursor: pointer;
+            flex: 1;
+            text-indent: 0;
+          }
+        }
+      }
+      h5{
+        cursor: pointer;
+        font-size: 10px;
+        margin-bottom: 10px;
+      }
+      .brand-color{
+        display: flex;
+        span{
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 5px;
+          background: var(--bgColor);
+          font-weight: 500;
+          color: var(--textColor);
+          text-indent: -9999px;
+          width: 70px;
+        }
+      }
+    }
+  }
   .header{
+    position: sticky;
+    top: 0;
     height: 60px;
     border-bottom: 1px solid #ccc;
     display: flex;

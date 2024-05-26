@@ -2,7 +2,7 @@ import { useState } from "react"
 import Modal from "react-modal"
 import { GrClose } from "react-icons/gr";
 
-export default function SideBar(props) {
+export default function SideBar() {
 
   const [modalIsopen, setModalIsopen] = useState(false)
 
