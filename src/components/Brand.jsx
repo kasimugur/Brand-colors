@@ -5,7 +5,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 export default function Brand({ brand }) {
 
-  const { selectedBrands, setSelectedBrands } = useContext(MainContext)
+  const { selectedBrands, setSelectedBrands, setCopied } = useContext(MainContext)
 
   const toggleSelected = () => {
     if (selectedBrands.includes(brand.slug)) {
@@ -13,6 +13,10 @@ export default function Brand({ brand }) {
     } else {
       setSelectedBrands([...selectedBrands, brand.slug])
     }
+  }
+
+  const setColor = (color) => {
+    setCopied(color)
   }
 
   return (<>
@@ -23,8 +27,10 @@ export default function Brand({ brand }) {
         {brand.colors.map(color => (
           <CopyToClipboard
           text={color}
+          onCopy={() => setColor(color)}
           >
-            <span style={{
+            <span
+            style={{
             '--bgColor': `#${color}`,
             '--textColor': `${getContrastYIQ(color)}`
           }}>

@@ -1,8 +1,9 @@
-export default function Copied({color}) {
+export default function Copied({ color }) {
   return (
     <>
       <div className="copied">
-{color}
+
+        Copied #{color} to Clipboard
       </div>
     </>
   )

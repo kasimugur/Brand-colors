@@ -68,7 +68,16 @@ body {
     }
   }
 }
-
+.copied{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background:#54acd8;
+  color: #fff;
+  padding: 15px 25px ;
+  border-radius: 4px;
+  font-size: 16px;
+}
 .content{
   flex: 1;
   overflow: auto;

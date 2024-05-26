@@ -20,14 +20,15 @@ function App() {
   const data = {
     brands,
     selectedBrands,
-    setSelectedBrands
+    setSelectedBrands,
+    setCopied
   }
   return (
     <>
       <MainContext.Provider value={data}>
+        {copied && <Copied color={copied} />}
         <SideBar />
         <Content />
-        {copied && <Copied color={copied} />}
       </MainContext.Provider>
     </>
   )
