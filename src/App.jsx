@@ -12,20 +12,26 @@ function App() {
   const [brands, setBrands] = useState(brandsArray)
   const [selectedBrands, setSelectedBrands] = useState([])
   const [copied, setCopied] = useState(false)
-
+  const [search, setSearch] = useState('')
   useEffect(() => {
     console.log(selectedBrands)
   }, [selectedBrands])
 
-  
+
 
   const data = {
     brands,
     selectedBrands,
     setSelectedBrands,
     setCopied,
-    copied
+    copied,
+    search,
+    setSearch
   }
+  useEffect(() => {
+    setBrands(brandsArray.filter(
+      brand => brand.title.toLowerCase().includes(search)))
+  }, [search])
   return (
     <>
       <MainContext.Provider value={data}>
