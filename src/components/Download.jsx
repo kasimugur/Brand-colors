@@ -66,14 +66,14 @@ export default function Download() {
     <>
       <div className="download">
         <div className="action">
-          <a download={`brands.${cssMethod}`} href={downloadUrl}>
-            <GrDownload />
-          </a>
           <select onChange={(e) => setCssMethod(e.target.value)}>
             <option value="css">CSS</option>
             <option value="scss">SCSS</option>
             <option value="less">LESS</option>
           </select>
+          <a download={`brands.${cssMethod}`} href={downloadUrl}>
+            <GrDownload />
+          </a>
           <button onClick={getLink}>
             <GrLink />
           </button>

@@ -183,6 +183,7 @@ body {
         button {
           width: 30px;
           height: 30px;
+          background: none;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -192,6 +193,17 @@ body {
             height: 15px;
             width: 15px;
           }
+        }
+
+        select {
+          margin-right: 7px;
+          height: 30px;
+          padding: 0 15px;
+          background: #eee;
+          border-radius: 4px;
+          appearance: none;
+          text-align: center;
+          cursor: pointer;
         }
       }
 
