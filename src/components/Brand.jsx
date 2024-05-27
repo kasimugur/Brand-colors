@@ -24,8 +24,9 @@ export default function Brand({ brand }) {
       : ''}`}>
       <h5 onClick={toggleSelected} >{brand.title}</h5>
       <div className="brand-color">
-        {brand.colors.map(color => (
+        {brand.colors.map((color, index) => (
           <CopyToClipboard
+          key={index}
           text={color}
           onCopy={() => setColor(color)}
           >
