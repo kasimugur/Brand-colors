@@ -7,7 +7,7 @@ export default function Download() {
 
   const { selectedBrands, brands, setSelectedBrands } = useContext(MainContext)
   const [downloadUrl, setDownloadUrl] = useState()
-
+  const [cssMethod, setCssMethod] = useState('css')
 
   const getLink = () => {
     prompt("Here\'s the URL to share",
@@ -16,12 +16,42 @@ export default function Download() {
   useEffect(() => {
     if (selectedBrands.length > 0) {
       let output = ''
-      selectedBrands.map(slug => {
-        let brand = brands.find(brand => brand.slug === slug)
-        brand.colors.map((color, index) => {
-          output += `--${slug}-${index}: #${color};\n`
-        })
-      })
+      
+      
+      switch (cssMethod) {
+
+        case 'css':
+          output += ':root {\n'
+          selectedBrands.map(slug => {
+            let brand = brands.find(brand => brand.slug === slug)
+            brand.colors.map((color, key) => {
+              output += `--${slug}-${key}: #${color};\n`
+            })
+          })
+          output += '}'
+
+          break;
+
+        case 'scss':
+          selectedBrands.map(slug => {
+            let brand = brands.find(brand => brand.slug === slug)
+            brand.colors.map((color, key) => {
+              output += `\$${slug}-${key}: #${color};\n`
+            })
+          })
+
+          break;
+        case 'less':
+          selectedBrands.map(slug => {
+            let brand = brands.find(brand => brand.slug === slug)
+            brand.colors.map((color, key) => {
+              output += `@${slug}-${key}: #${color};\n`
+            })
+          })
+
+          break;
+      }
+
       const blob = new Blob([output])
       const url = URL.createObjectURL(blob)
       setDownloadUrl(url)
@@ -30,16 +60,16 @@ export default function Download() {
         setDownloadUrl('')
       }
     }
-  }, [selectedBrands])
+  }, [selectedBrands, cssMethod])
 
   return (
     <>
       <div className="download">
         <div className="action">
-          <a download="test.css" href={downloadUrl}>
+          <a download={`brands.${cssMethod}`} href={downloadUrl}>
             <GrDownload />
           </a>
-          <select onChange={changeCss}>
+          <select onChange={(e) => setCssMethod(e.target.value)}>
             <option value="css">CSS</option>
             <option value="scss">SCSS</option>
             <option value="less">LESS</option>
