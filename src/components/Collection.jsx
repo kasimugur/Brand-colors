@@ -27,7 +27,7 @@ export default function Collection() {
       <main className="content">
         <header className="header">
           <Link to="/" onClick={clearSelectedBrands} >
-            <button className="back-btn"> <GrPrevious /> </button>
+            <a className="back-btn"> <GrPrevious /> </a>
           </Link>
 
           {/* {selectedBrands.length !== 0 && <Download />} */}
