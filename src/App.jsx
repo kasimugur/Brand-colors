@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { Content, Copied, SideBar } from './components'
+import { Collection, Content, Copied, SideBar } from './components'
 import MainContext from './contetx/MainContext'
 import BrandsData from './brands.json'
+import { Route, Router, Routes } from 'react-router-dom'
 
 function App() {
   const brandsArray = []
@@ -37,7 +38,10 @@ function App() {
       <MainContext.Provider value={data}>
         {copied && <Copied color={copied} />}
         <SideBar />
-        <Content />
+        <Routes>
+          <Route path='/' element={<Content />} />
+          <Route path='/collection/:slugs' element={<Collection />} />
+        </Routes>
       </MainContext.Provider>
     </>
   )
