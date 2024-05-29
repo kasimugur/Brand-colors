@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import MainContext from "../contetx/MainContext"
 import { GrLink, GrDownload, GrClose } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 
 export default function Download() {
@@ -9,10 +10,7 @@ export default function Download() {
   const [downloadUrl, setDownloadUrl] = useState()
   const [cssMethod, setCssMethod] = useState('css')
 
-  const getLink = () => {
-    prompt("Here\'s the URL to share",
-      `http://localhost:3000/${selectedBrands.join(',')}`)
-  }
+  
   useEffect(() => {
     if (selectedBrands.length > 0) {
       let output = ''
@@ -61,7 +59,10 @@ export default function Download() {
       }
     }
   }, [selectedBrands, cssMethod])
-
+  const getLink = () => {
+    prompt("Here\'s the URL to share",
+      `http://localhost:3000/${selectedBrands.join(',')}`)
+  }
   return (
     <>
       <div className="download">
@@ -74,9 +75,9 @@ export default function Download() {
           <a download={`brands.${cssMethod}`} href={downloadUrl}>
             <GrDownload />
           </a>
-          <button onClick={getLink}>
+          <Link to={`/collection/${selectedBrands.join(',')}`}>
             <GrLink />
-          </button>
+          </Link>
         </div>
 
         <div className="selected" onClick={() => setSelectedBrands([])}>

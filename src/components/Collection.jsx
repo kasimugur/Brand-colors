@@ -1,17 +1,17 @@
 import { useContext, useEffect } from "react"
-import { Link, useHistory, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import MainContext from "../contetx/MainContext"
 import LazyLoad from "react-lazyload"
-
+import { GrPrevious } from "react-icons/gr";
 
 export default function Collection() {
   const { slugs } = useParams()
   const { selectedBrands, setSelectedBrands, brands } = useContext(MainContext)
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const clearSelectedBrands = () => {
     setSelectedBrands([])
-    history.push('/')
+    navigate.push('/')
   }
 
 
@@ -26,11 +26,11 @@ export default function Collection() {
     <>
       <main className="content">
         <header className="header">
-        <Link to="/" onClick={clearSelectedBrands} >
-<button className="back-btn"> All brand </button>
-        </Link>
+          <Link to="/" onClick={clearSelectedBrands} >
+            <button className="back-btn"> <GrPrevious /> </button>
+          </Link>
 
-          {selectedBrands.length !== 0 && <Download />}
+          {/* {selectedBrands.length !== 0 && <Download />} */}
         </header>
 
         <section className="brands">
@@ -38,8 +38,8 @@ export default function Collection() {
             let brand = brands.find(brand => brand.slug === slug)
             return (
               < LazyLoad once={true} overflow={true} key={index} placeholder="loading.." >
-                <Brand brand={brand} />
-              </LazyLoad>
+                {/* <Brand  brand={brand} /> */}
+               </LazyLoad>
             )
           }
           )}
