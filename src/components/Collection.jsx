@@ -36,15 +36,15 @@ export default function Collection() {
         </header>
 
         <section className="brands">
-          {brands.map((slug, index) => {
+          {selectedBrands.map(slug => {
             let brand = brands.find(brand => brand.slug === slug)
             return (
               < LazyLoad
                 once={true}
                 overflow={true}
-                key={index}
-                placeholder={<Loader /> } >
-                <Brand brand={slug} />
+                key={brand.slug}
+                placeholder={<Loader />} >
+                <Brand brand={brand} />
               </LazyLoad>
             )
           }
