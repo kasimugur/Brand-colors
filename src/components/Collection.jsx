@@ -5,6 +5,7 @@ import LazyLoad from "react-lazyload"
 import { GrPrevious } from "react-icons/gr";
 import Brand from "./Brand";
 import Download from "./Download";
+import Loader from "./Loader";
 
 export default function Collection() {
   const { slugs } = useParams()
@@ -37,11 +38,15 @@ export default function Collection() {
 
         <section className="brands">
           {brands.map((slug, index) => {
-          let brand = brands.find(brand => brand.slug === slug)
+            let brand = brands.find(brand => brand.slug === slug)
             return (
-              < LazyLoad once={true} overflow={true} key={index} placeholder="loading.." >
-                <Brand  brand={slug} />
-               </LazyLoad>
+              < LazyLoad
+                once={true}
+                overflow={true}
+                key={index}
+                placeholder={<Loader /> } >
+                <Brand brand={slug} />
+              </LazyLoad>
             )
           }
           )}

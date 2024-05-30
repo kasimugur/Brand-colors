@@ -3,6 +3,7 @@ import Collection from "./Collection";
 import Content from "./Content";
 import Copied from "./Copied";
 import Download from "./Download";
+import Loader from "./Loader";
 import Search from "./Search";
 import SideBar from "./SideBar";
 
@@ -13,5 +14,6 @@ export {
   Brand,
   Copied,
   Download,
-  Collection
+  Collection,
+  Loader
 }

@@ -4,6 +4,7 @@ import { useContext } from "react";
 import MainContext from "../contetx/MainContext";
 import LazyLoad from 'react-lazyload';
 import Download from "./Download";
+import Loader from "./Loader";
 
 export default function Content() {
 
@@ -18,7 +19,7 @@ export default function Content() {
 
       <section className="brands">
         {brands.map((brand, index) => (
-          <LazyLoad once={true} overflow={true} key={index} placeholder="loading.." >
+          <LazyLoad once={true} overflow={true} key={index} placeholder={<Loader />} >
             <Brand brand={brand} />
           </LazyLoad>
         ))}
