@@ -22,7 +22,6 @@ export default function Collection() {
     setSelectedBrands(slugs.split(','))
   }, [])
 
-  console.log("--------params", slugs)
 
 
   return (
@@ -30,7 +29,7 @@ export default function Collection() {
       <main className="content">
         <header className="header">
           <Link to="/" onClick={clearSelectedBrands} >
-            <a className="back-btn"> <GrPrevious /> </a>
+            <button className="back-btn"> <GrPrevious /> </button>
           </Link>
 
           {selectedBrands.length !== 0 && <Download />}

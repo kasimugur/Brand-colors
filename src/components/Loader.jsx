@@ -7,8 +7,8 @@ export default function Loader() {
       width={400}
       height={103}
       viewBox="0 0 400 103"
-      backgroundColor="#f3f3f3"
-      foregroundColor="#ecebeb"
+      backgroundColor="#dbd6d6"
+      foregroundColor="#c7bebe"
     >
       <rect x="8" y="7" rx="3" ry="3" width="88" height="10" />
       <rect x="10" y="39" rx="0" ry="0" width="70" height="40" />
