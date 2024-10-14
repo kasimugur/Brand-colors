@@ -3,7 +3,7 @@ import './App.css'
 import { Collection, Content, Copied, SideBar } from './components'
 import MainContext from './contetx/MainContext'
 import BrandsData from './brands.json'
-import { Route, Router, Routes } from 'react-router-dom'
+import { Route,  Routes } from 'react-router-dom'
 
 function App() {
   const brandsArray = []

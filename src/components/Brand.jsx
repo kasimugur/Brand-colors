@@ -26,16 +26,16 @@ export default function Brand({ brand }) {
       <div className="brand-color">
         {brand.colors.map((color, index) => (
           <CopyToClipboard
-          key={index}
-          text={color}
-          onCopy={() => setColor(color)}
+            key={index}
+            text={color}
+            onCopy={() => setColor(color)}
           >
             <span
-            style={{
-            '--bgColor': `#${color}`,
-            '--textColor': `${getContrastYIQ(color)}`
-          }}>
-            {color}
+              style={{
+                '--bgColor': `#${color}`,
+                '--textColor': `${getContrastYIQ(color)}`
+              }}>
+              {color}
             </span>
           </CopyToClipboard>
         ))}
