@@ -10,21 +10,26 @@ export default function Download() {
   const [downloadUrl, setDownloadUrl] = useState()
   const [cssMethod, setCssMethod] = useState('css')
 
-  
+
   useEffect(() => {
     if (selectedBrands.length > 0) {
       let output = ''
-      
-      
+
+
       switch (cssMethod) {
 
         case 'css':
           output += ':root {\n'
           selectedBrands.map(slug => {
             let brand = brands.find(brand => brand.slug === slug)
-            brand.colors.map((color, key) => {
-              output += `--${slug}-${key}: #${color};\n`
-            })
+            if (brand) { // Marka kontrolü
+              brand.colors.map((color, key) => {
+                output += `--${slug}-${key}: #${color};\n`
+              })
+            } else {
+              console.warn(`Brand not found for slug: ${slug}`); // Hata mesajı
+            }
+            console.log(`Slug: ${slug}, Brand: ${brand}`);
           })
           output += '}'
 

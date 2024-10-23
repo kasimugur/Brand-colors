@@ -38,6 +38,11 @@ export default function Collection() {
         <section className="brands">
           {selectedBrands.map(slug => {
             let brand = brands.find(brand => brand.slug === slug)
+            if (!brand) {
+              console.warn(`Brand not found for slug: ${slug}`); // Hata mesajı
+              return null; // Eğer marka bulunamazsa null döndür
+          }
+            
             return (
               < LazyLoad
                 once={true}
